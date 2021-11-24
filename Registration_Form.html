@@ -8,7 +8,7 @@
   </head>
   <body>
     <div class="testbox">
-    <form name="registration" method="post" action="registration.php">
+    <form name="registration" method="post" action="process.php">
     <div class="banner">
         <h1>New User Application Form</h1>
       </div>
@@ -18,6 +18,7 @@
         
       <fieldset>
       <legend>Applicant Information</legend>
+
       <div class="item">
       <label for="name">Name<span>*</span></label>
       <div class="name-item">
@@ -26,123 +27,142 @@
       <input  type="text" name="last_name" placeholder="Last" required/>
       </div>
       </div>
+
       <div class="item">
+        <label for="email">Email<span>*</span></label>
+        <input type="text" name="email"/>
+      </div>
+
+      <div class="item">
+        <label for="mobile_no">Mobile Number<span>*</span></label>
+        <input  type="numerics" name="mobile_no" required/>
+    </div>
+
+    <div class="item">
       <label for="bdate">Date of Birth<span>*</span></label>
       <input type="date" name="bdate" required/>
             <i class="fas fa-calendar-alt"></i>
       <select name="gender">
-      <option selected value="" disabled selected required/>Gender</option>
+      <option selected value="" disabled selected required>Gender</option>
                   <option value="Male">Male</option>
                   <option value="Female">Female</option>
                   <option value="Don't wish to Specify">Don't wish to Specify</option>
       </select>
-
       </div>
-      <div class="item">
+
+    <div class="item">
       <label for="ssn">Social Security Number<span>*</span></label>
       <input  type="text" name="ssn" required/>
+    </div>
+
+    <label>Applicant Mailing Address</label>
+    <fieldset>
+    <div class="item">
+      <label for="position">Mailing Address<span>*</span></label>
+      <input type="text" name="app_address" placeholder="Mailing Address" required />
       </div>
       <div class="item">
-      <label for="payee_bank_detail">Payee Bank Details<span>*</span></label>
-      <input  type="text" name="payee_bank_detail" required/>
-      </div>
-      <div class="item">
-      <label for="payer_bank_detail">Payer Bank Details<span>*</span></label>
-      <input  type="text" name="payer_bank_detail" required/>
-      </div>
-      <div class="item">
-      <label for="email">Email<span>*</span></label>
-      <input type="text" name="email" required/>
-      </div>
-      <div class="item">
-      <label for="mobile_no">Mobile Number<span>*</span></label>
-      <input  type="numerics" name="mobile_no" required/>
-      </div>
-      <div class="item">
-      <label for="position">Requesting Address<span>*</span></label>
-      <input id="position" type="text" name="req_address" required />
-      </div>
-<div class="item">
-          <div class="name-item">
-            <div>
-              <input type="text" name="req_city" placeholder="City" />
-            </div>
-            <div>
-              <input type="text" name="req_state" placeholder="State/region" />
-            </div>
+        <div class="name-item">
+          <div>
+            <input type="text" name="app_city" placeholder="City" />
           </div>
-          <div class="item">
-            <div class="name-item">
-              <div>
-                <input type="text" name="req_zip_code" placeholder="ZIP Code" />
-              </div>
-              <div>
-                <select name="req_country">
-                  <option selected value="" disabled selected>Country</option>
-                  <option value="1">Russia</option>
-                  <option value="2">Germany</option>
-                  <option value="3">France</option>
-                  <option value="4">Armenia</option>
-                  <option value="5">USA</option>
-                  <option value="6">Spain</option>
-                  <option value="7">Italy</option>
-                </select>
-              </div>
-            </div>
+          <div>
+            <input type="text" name="app_state" placeholder="State/region" />
           </div>
-      </fieldset>
+          <div>
+            <select name="app_country">
+              <option selected value="" disabled selected>Country</option>
+              <option value="1">Russia</option>
+              <option value="2">Germany</option>
+              <option value="3">France</option>
+              <option value="4">Armenia</option>
+              <option value="5">USA</option>
+              <option value="6">Spain</option>
+              <option value="7">Italy</option>
+            </select>
+          </div>
+          <div>
+            <input type="text" name="app_zip_code" placeholder="ZIP Code" />
+          </div>
+        </div>
+    </div>
+    </fieldset>
+  </br>
+  <!--Landlord Address -->
+  <label>Landlord Address Details</label>
+  <fieldset>
+    <div class="item">
+      <label for="landlord_name">Landlord Name<span>*</span></label>
+      <input  type="text" name="landlord_name" placeholder="Landlord Name" required/>
+    </div>
+
+
+    <div class="item">
+      <label for="position">Landlord Mailing Address<span>*</span></label>
+      <input type="text" name="landlord_address" placeholder="Landlord Mailing Address" required />
+      </div>
+      <div class="item">
+        <div class="name-item">
+          <div>
+            <input type="text" name="landlord_city" placeholder="City" />
+          </div>
+          <div>
+            <input type="text" name="landlord_state" placeholder="State/region" />
+          </div>
+          <div>
+            <select name="landlord_country">
+              <option selected value="" disabled selected>Country</option>
+              <option value="1">Russia</option>
+              <option value="2">Germany</option>
+              <option value="3">France</option>
+              <option value="4">Armenia</option>
+              <option value="5">USA</option>
+              <option value="6">Spain</option>
+              <option value="7">Italy</option>
+            </select>
+          </div>
+          <div>
+            <input type="text" name="landlord_zip_code" placeholder="ZIP Code" />
+          </div>
+        </div>
+    </div>
+    </fieldset>
+
+  <!--Landlord Address end -->
+   
+      
+
+  <div class="item">
+    <label for="unit_type">Unit Type<span>*</span></label>
+    <input type="text" name="unit_type" placeholder="Unit Type" required />
+  </div>
+
+<div>
+  <select name="renter">
+    <option selected value="" disabled selected>Renters</option>
+    <option value="Yes">Yes</option>
+    <option value="No">No</option>
+
+  </select>
+</div>
+
+    <div class="item">
+  <label for="requested_amount">Requested Amount<span>*</span></label>
+  <input  type="text" name="requested_amount" placeholder="Requested Amount" required/>
+    </div>
+  </fieldset>
+
       </br>
-      <div class="item">
-      <label for="position">Current Address<span>*</span></label>
-      <input type="text" name="current_adress" required />
-      </div>
-<div class="item">
-          <div class="name-item">
-            <div>
-              <input type="text" name="current_city" placeholder="City" />
-            </div>
-            <div>
-              <input type="text" name="current_state" placeholder="State/region" />
-            </div>
-          </div>
-          <div class="item">
-            <div class="name-item">
-              <div>
-                <input type="text" name="current_code" placeholder="ZIP Code" />
-              </div>
-              <div>
-                <select name="current_country">
-                  <option selected value="" disabled selected>Country</option>
-                  <option value="1">Russia</option>
-                  <option value="2">Germany</option>
-                  <option value="3">France</option>
-                  <option value="4">Armenia</option>
-                  <option value="5">USA</option>
-                  <option value="6">Spain</option>
-                  <option value="7">Italy</option>
-                </select>
-              </div>
-            </div>
-          </div>
-      </fieldset>
-      </br>
-      <form action="upload.php" method="post" enctype="multipart/form-data">
-      <input type="file" name="fileToUpload" id="fileToUpload">
-      <input type="submit" value="Upload Image" name="submit">
-      </form>
-       <div>
-                <select>
-                  <option selected value="" disabled selected>Classification</option>
-                  <option value="1">Fraudulent</option>
-                  <option value="2">Non-Fraudulent</option>
-                </select>
-              </div>
 			  </br>
-      <fieldset>
+    
+     
       <div class="btn-block">
       <button type="submit" name="submit" value="submit">APPLY</button>
       </div>
+      
     </form>
     </div>
   </body>
 </html>
+
+  

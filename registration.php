@@ -4,21 +4,22 @@ Include('connect.php')
 //if submit is not blanked i.e. it is clicked.
 If(isset($_REQUEST['submit'])!='')
 {
-If($_REQUEST['first_name']=='' || $_REQUEST['last_name']=='' || $_REQUEST['bdate']==''|| $_REQUEST['ssn']=='' || $_REQUEST['payee_bank_detail']=='' || $_REQUEST['payer_bank_detail']=='' || $_REQUEST['email']=='' || $_REQUEST['mobile_no']=='' || $_REQUEST['req_address']=='' || $_REQUEST['req_city']=='' || $_REQUEST['req_state']=='' || $_REQUEST['req_zip_code']=='' || $_REQUEST['req_country']==''|| $_REQUEST['current_adress']=='' || $_REQUEST['current_city']=='' || $_REQUEST['current_state']=='' || $_REQUEST['current_code']=='' || $_REQUEST['current_country']=='' || $_REQUEST['req_country']=='' || $_REQUEST['req_country']==''  );
+if($_REQUEST['first_name']=='' || $_REQUEST['last_name']=='' || $_REQUEST['email']==''|| $_REQUEST['mobile_no']=='' || $_REQUEST['bdate']=='' || $_REQUEST['gender']==''|| $_REQUEST['ssn']=='' || $_REQUEST['app_address']=='' || $_REQUEST['app_city']=='' || $_REQUEST['app_state']=='' || $_REQUEST['app_country']==''|| $_REQUEST['app_zip_code']=='' || $_REQUEST['landlord_name']=='' || $_REQUEST['landlord_address']=='' || $_REQUEST['landlord_city']=='' || $_REQUEST['landlord_state']=='' || $_REQUEST['landlord_country']=='' || $_REQUEST['landlord_zip_code']=='' || $_REQUEST['unit_type']=='' || $_REQUEST['renter']=='' || $_REQUEST['requested_amount']==''  );
 {
-Echo "please fill the empty field.";
+echo "please fill the empty field.";
 }
-Else
+else
 {
-$sql="insert into registered_users(f_name,m_name,l_name,dob,gender,social_sec_no,payee_bnk_det,payer_bnk_det,email_id,mobile_no,req_address,req_city,req_state,req_zip_code,req_country,current_address,current_city,current_state,current_zip_code,current_currentry,occupation) values('".$_REQUEST['first_name']."', '".$_REQUEST['m_name']."', '".$_REQUEST['l_name']."', '".$_REQUEST['dob']."', '".$_REQUEST['gender']."', '".$_REQUEST['social_sec_no']."', '".$_REQUEST['payee_bnk_det']."', '".$_REQUEST['payer_bnk_det']."', '".$_REQUEST['email_id']."', '".$_REQUEST['mobile_no']."', '".$_REQUEST['req_address']."','".$_REQUEST['req_city']."','".$_REQUEST['req_state']."','".$_REQUEST['req_zip_code']."','".$_REQUEST['req_country']."','".$_REQUEST['current_address']."','".$_REQUEST['current_city']."','".$_REQUEST['current_state']."','".$_REQUEST['current_zip_code']."','".$_REQUEST['current_currentry','".$_REQUEST['occupation']."')";
+$sql="insert into registred_users(first_name,middle_name,last_name,email,mobile_no,bdate,gender,gender,app_mailing_address,app_city,app_state,app_country,app_zip,landlord_name,landlord_address,landlord_city,landlord_state,landlord_country,landlord_zip,unit_type,renter,requested_amount) values('".$_REQUEST['first_name']."', '".$_REQUEST['middle_name']."', '".$_REQUEST['last_name']."', '".$_REQUEST['email']."', '".$_REQUEST['mobile_no']."', '".$_REQUEST['bdate']."', '".$_REQUEST['gender']."', '".$_REQUEST['ssn']."', '".$_REQUEST['app_address']."', '".$_REQUEST['app_city']."', '".$_REQUEST['app_state']."','".$_REQUEST['app_country']."','".$_REQUEST['app_zip_code']."','".$_REQUEST['landlord_name']."','".$_REQUEST['landlord_address']."','".$_REQUEST['landlord_city']."','".$_REQUEST['landlord_state']."','".$_REQUEST['landlord_country']."','".$_REQUEST['landlord_zip_code']."','".$_REQUEST['unit_type']."','"$_REQUEST['renter']."','"$_REQUEST['requested_amount']."')";
+
 $res=mysql_query($sql);
-If($res)
+if($res)
 {
-Echo "Record successfully inserted";
+echo "Record successfully inserted";
 }
 Else
 {
-Echo "There is some problem in inserting record";
+echo "There is some problem in inserting record";
 }
 
 }
